@@ -1,0 +1,70 @@
+================================================================================
+                         NEXT STEPS TO DEPLOY
+================================================================================
+
+Your code is ready and committed to Git! Follow these steps:
+
+STEP 1: CREATE GITHUB REPOSITORY
+---------------------------------
+1. Go to: https://github.com/new
+2. Repository name: llm-quiz-solver
+3. Make it PUBLIC (important!)
+4. Don't initialize with README
+5. Click "Create repository"
+
+STEP 2: PUSH YOUR CODE
+-----------------------
+Copy your GitHub repository URL, then run:
+
+    git remote add origin https://github.com/YOUR_USERNAME/llm-quiz-solver.git
+    git push -u origin main
+
+Replace YOUR_USERNAME with your actual GitHub username.
+
+STEP 3: DEPLOY TO RENDER
+-------------------------
+1. Go to: https://render.com
+2. Sign up/Login with GitHub
+3. Click "New +" → "Web Service"
+4. Connect your GitHub account
+5. Select "llm-quiz-solver" repository
+6. Configure:
+   - Name: llm-quiz-solver
+   - Build Command: pip install -r requirements.txt && playwright install chromium
+   - Start Command: python app.py
+7. Add Environment Variables:
+   - EMAIL = 23f2003951@ds.study.iitm.ac.in
+   - SECRET = data-science
+   - OPENAI_API_KEY = (your OpenAI key)
+   - PORT = 10000
+8. Click "Create Web Service"
+9. Wait 5-10 minutes for deployment
+
+STEP 4: TEST YOUR DEPLOYMENT
+-----------------------------
+Once deployed, test it:
+
+    curl https://your-app-name.onrender.com/health
+
+Should return: {"status":"ok"}
+
+STEP 5: SUBMIT GOOGLE FORM
+---------------------------
+Fill out the form with:
+- Email: 23f2003951@ds.study.iitm.ac.in
+- Secret: data-science
+- System Prompt: (see SUBMISSION_INFO.md)
+- User Prompt: (see SUBMISSION_INFO.md)
+- API Endpoint: https://your-app-name.onrender.com/quiz
+- GitHub Repo: https://github.com/YOUR_USERNAME/llm-quiz-solver
+
+================================================================================
+                    READY FOR QUIZ: NOV 29, 3-4 PM IST
+================================================================================
+
+For detailed instructions, see:
+- DEPLOYMENT.md - Full deployment guide
+- SUBMISSION_INFO.md - Form submission details
+- QUICK_REFERENCE.md - Quick commands reference
+
+Good luck! 🚀
