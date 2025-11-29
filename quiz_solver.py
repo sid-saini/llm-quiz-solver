@@ -10,7 +10,15 @@ logger = logging.getLogger(__name__)
 
 class QuizSolver:
     def __init__(self):
-        self.client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+        # Support both OpenAI and AIpipe
+        api_key = os.getenv('OPENAI_API_KEY')
+        base_url = os.getenv('OPENAI_BASE_URL')  # Optional: for AIpipe or other providers
+        
+        if base_url:
+            self.client = OpenAI(api_key=api_key, base_url=base_url)
+        else:
+            self.client = OpenAI(api_key=api_key)
+        
         self.downloads_dir = 'downloads'
         os.makedirs(self.downloads_dir, exist_ok=True)
     
